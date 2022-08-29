@@ -1,0 +1,47 @@
+<ion-content>
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <h1>Login App</h1>
+      <p>Hola de nuevo </p>
+    </ion-label>
+  </ion-title>
+
+  <div class="ion-padding-vertical">
+    <ion-card class="ion-text-center ion-padding-vertical" color="loginbutton">
+      <ion-img src="assets/img/lg.svg.png"></ion-img>
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          <ion-text color="light">
+            <h2>Bienvenido!</h2>
+          </ion-text>
+        </ion-label>
+      </ion-card-title>
+
+      <ion-card-content>
+
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario.nombreUsuario"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+        </ion-item>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="duoccolor" shape="block"  (click)="ingresar()">Ingresar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+
+      <ion-label>
+        <br>
+        <a routerLink="">crear cuenta</a>
+      </ion-label>
+
+    </ion-card>
+
+  </div>
+</ion-content>
