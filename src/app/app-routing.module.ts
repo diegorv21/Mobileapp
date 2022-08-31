@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'ingreso',
     loadChildren: () => import('./ingreso/ingreso.module').then( m => m.IngresoPageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+
 ];
 
 @NgModule({
