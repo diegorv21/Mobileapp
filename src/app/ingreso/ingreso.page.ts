@@ -52,9 +52,9 @@ export class IngresoPage implements OnInit {
           para el caso en que ya quedó lista la página de login y me interesa probar las otras páginas,
           de este modo se saltará el login y no tendrás que estar digitando los datos todo el tiempo.
     */
-    //  this.usuario.nombreUsuario = 'cgomez';
-    //  this.usuario.password = '5678';
-    //  this.ingresar();
+     this.usuario.nombreUsuario = 'atorres@duocuc.cl';
+     this.usuario.password = '5678';
+     this.ingresar();
   }
 
   public ingresar(): void {

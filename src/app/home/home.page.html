@@ -9,15 +9,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding-horizontal">
+
   <!-- <mat-slider min="1" max="100" step="1" value="10"></mat-slider> -->
-  <ion-title class="ion-padding-top">
-    <ion-label>
-      <h1 class="ion-text-center">¡Bienvenido!</h1>
+  <ion-img src="https://yt3.ggpht.com/ytc/AMLnZu_iOjKLe4_1BYCg4Vku1aA83G_cgloVzyYMj8qp=s900-c-k-c0x00ffffff-no-rj" style="width: 50% ;"></ion-img>
+  <ion-card>
+    <ion-label >
+      <h2 *ngIf="usuario.nombreUsuario === 'atorres@duocuc.cl'" class="bienvenida"> Bienvenida Ana   </h2>
+      <h2 *ngIf="usuario.nombreUsuario === 'avalenzuela@duocuc.cl'" class="bienvenida"> Bienvenida Alberto  </h2>
+      <h2 *ngIf="usuario.nombreUsuario === 'cfuentes@duocuc.cl'" class="bienvenida" > Bienvenida Carla  </h2>
       <!-- {{interpolacion}}
           Permite mostrar los datos desde el script a la visual
           verificar el data en el home.page.ts
         -->
       <p *ngIf="usuario">Usuario: {{ usuario.nombreUsuario }}</p>
+    <p class="ion-padding-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </ion-label>
-  </ion-title>
+  </ion-card>
+
+
 </ion-content>

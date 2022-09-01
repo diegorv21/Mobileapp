@@ -13,6 +13,7 @@ import { Animation, AnimationController} from '@ionic/angular';
 })
 export class HomePage implements OnInit, AfterViewInit {
   @ViewChild('titulo', { read: ElementRef, static: true}) titulo: ElementRef;
+  @ViewChild('bienvenida', { read: ElementRef, static: true}) bienvenida: ElementRef;
 
 
   public usuario: Usuario;
@@ -37,7 +38,7 @@ this.activeroute.queryParams.subscribe(params => {       // Utilizamos expresió
       intentó entrar directamente a la página home sin pasar por el login,
       de modo que el sistema debe enviarlo al login para que inicie sesión.
     */
-    this.router.navigate(['/login']);
+    this.router.navigate(['/ingreso']);
   }
 });
 }
@@ -56,8 +57,18 @@ public ngOnInit(): void {
       .duration(6000)
       .fromTo('transform', 'translate(0%)', 'translate(100%)')
       .fromTo('opacity', 0.2, 1);
-
+    const animationBienvenida = this.animationController
+      .create()
+      .addElement(document.querySelector('.bienvenida'))
+      .duration(3000)
+      .iterations(Infinity)
+      .keyframes([
+        { offset: 0, background: 'red' },
+        { offset: 0.72, background: 'var(--background)' },
+        { offset: 1, background: 'green' }
+      ]);
     animation.play();
+    animationBienvenida.play();
   }
   public animateItem(elementRef: any) {
     this.animationController

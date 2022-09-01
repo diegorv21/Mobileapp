@@ -3,11 +3,9 @@ export class Usuario {
   public password = '';
 
   public validarNombreUsuario(): string {
-    if (this.nombreUsuario.trim() === '') {
-      return 'Para ingresar al sistema debe ingresar un nombre de usuario.';
-    }
-    if (this.nombreUsuario.length < 3 || this.nombreUsuario.length > 8) {
-      return 'El nombre de usuario debe tener entre 3 y 8 caracteres.';
+    // eslint-disable-next-line max-len
+    if (this.nombreUsuario !== "atorres@duocuc.cl" && this.nombreUsuario !== "avalenzuela@duocuc.cl" && this.nombreUsuario !== 'cfuentes@duocuc.cl') {
+      return 'Usuario incorrecto';
     }
     return '';
   }
