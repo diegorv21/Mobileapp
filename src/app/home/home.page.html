@@ -2,7 +2,7 @@
   <ion-toolbar color="primary">
     <ion-title #titulo class="ion-text-left ion-text">
       <div>
-        DUOCUC
+        DUOCUC QR Reader
       </div>
     </ion-title>
   </ion-toolbar>
@@ -12,6 +12,34 @@
 
   <!-- <mat-slider min="1" max="100" step="1" value="10"></mat-slider> -->
   <ion-img src="https://yt3.ggpht.com/ytc/AMLnZu_iOjKLe4_1BYCg4Vku1aA83G_cgloVzyYMj8qp=s900-c-k-c0x00ffffff-no-rj" style="width: 50% ;"></ion-img>
+  <ion-title> Escanea tu código QR aquí</ion-title>
+  <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera"
+    (change)="verificarArchivoConQR($event.target.files)" />
+
+  <br>
+
+  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Cargar Imagen con Código QR
+  </ion-button>
+
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="videocam-outline"></ion-icon>
+    Comenzar Escaneo de QR
+  </ion-button>
+
+  <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+    Detener escaneo de QR
+  </ion-button>
+
+  <ion-button (click)="limpiarDatos()" expand="block" expand="full" shape="round">
+    <ion-icon slot="start" name="trash-outline"></ion-icon>
+    Limpiar datos
+  </ion-button>
+
+  <video #video [hidden]="!escaneando" width="100%"></video>
+  <canvas #canvas hidden></canvas>
   <ion-card>
     <ion-label >
       <h2 *ngIf="usuario.nombreUsuario === 'atorres@duocuc.cl'" class="bienvenida"> Bienvenida Ana   </h2>
@@ -22,8 +50,11 @@
           verificar el data en el home.page.ts
         -->
       <p *ngIf="usuario">Usuario: {{ usuario.nombreUsuario }}</p>
-    <p class="ion-padding-top">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-      and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <br>
+      Datos: {{ datosQR }}
+      <br><br>
+      Escaneando: {{ escaneando }}
+      <br>
     </ion-label>
   </ion-card>
 
