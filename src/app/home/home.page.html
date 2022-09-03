@@ -11,29 +11,29 @@
 <ion-content [fullscreen]="true" class="ion-padding-horizontal">
 
   <!-- <mat-slider min="1" max="100" step="1" value="10"></mat-slider> -->
-  <ion-img src="https://yt3.ggpht.com/ytc/AMLnZu_iOjKLe4_1BYCg4Vku1aA83G_cgloVzyYMj8qp=s900-c-k-c0x00ffffff-no-rj" style="width: 50% ;"></ion-img>
+  <ion-img src="assets/img/lg.svg.png" style="width: 50% ;"></ion-img>
   <ion-title> Escanea tu código QR aquí</ion-title>
   <input #fileinput hidden id="input-file" type="file" accept="image/*;capture=camera"
     (change)="verificarArchivoConQR($event.target.files)" />
 
   <br>
 
-  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round" color="warning" >
     <ion-icon slot="start" name="camera"></ion-icon>
     Cargar Imagen con Código QR
   </ion-button>
 
-  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round" color="warning">
     <ion-icon slot="start" name="videocam-outline"></ion-icon>
     Comenzar Escaneo de QR
   </ion-button>
 
-  <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+  <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round" color="warning">
     <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
     Detener escaneo de QR
   </ion-button>
 
-  <ion-button (click)="limpiarDatos()" expand="block" expand="full" shape="round">
+  <ion-button (click)="limpiarDatos()" expand="block" expand="full" shape="round" color="warning">
     <ion-icon slot="start" name="trash-outline"></ion-icon>
     Limpiar datos
   </ion-button>
