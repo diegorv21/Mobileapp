@@ -37,8 +37,8 @@ export class IngresoPage implements OnInit {
     mientras que "router" con minúscula es el objeto de esa clase, que usaremos para ejecutar el método "navigate".
   */
   constructor(private router: Router, private toastController: ToastController) {
-    this.usuario = new Usuario();
-    this.usuario.nombreUsuario = '';
+    this.usuario = new Usuario('', '', '', '', '');
+    this.usuario.correo = '';
     this.usuario.password = '';
   }
 
@@ -52,9 +52,9 @@ export class IngresoPage implements OnInit {
           para el caso en que ya quedó lista la página de login y me interesa probar las otras páginas,
           de este modo se saltará el login y no tendrás que estar digitando los datos todo el tiempo.
     */
-     this.usuario.nombreUsuario = 'atorres@duocuc.cl';
-     this.usuario.password = '5678';
-     this.ingresar();
+    //  this.usuario.correo = 'atorres@duocuc.cl';
+    //  this.usuario.password = '5678';
+    //  this.ingresar();
   }
 
   public ingresar(): void {
@@ -87,14 +87,16 @@ export class IngresoPage implements OnInit {
   */
   public validarUsuario(usuario: Usuario): boolean {
 
-    const mensajeError = usuario.validarUsuario();
+    const usu = this.usuario = this.usuario.buscarUsuarioValido(
+      this.usuario.correo, this.usuario.password);
 
-    if (mensajeError) {
-      this.mostrarMensaje(mensajeError);
-      return false;
+    if (usu) {
+      this.usuario = usu;
+      return true;
+    } else {
+        this.mostrarMensaje('Las credenciales no son correctas!');
+        return false;
     }
-
-    return true;
   }
 
   /**
