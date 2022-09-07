@@ -31,4 +31,9 @@ export class CorreoPage implements OnInit {
       this.router.navigate(['/pregunta'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
     }
   }
+  
+  public inicioSesion(): void {
+    this.router.navigate(['/ingreso']);
+  }
+
 }

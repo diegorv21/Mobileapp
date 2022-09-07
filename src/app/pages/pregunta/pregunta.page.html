@@ -1,13 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pregunta</ion-title>
+    <ion-title>Pregunta secreta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-subtitle>Ingresa tu correo</ion-card-subtitle>
-    <ion-input type="text" [(ngModel)]="respuesta" placeholder="Ingresa tu respuesta"></ion-input>
+  <ion-card class="ion-text-center ion-padding-vertical" color="loginbutton">
+    <h1>Recuperar contraseña</h1>
+    <p *ngIf="usuario"> {{ usuario.nombre}}</p>
+    <p *ngIf="usuario"> {{ usuario.preguntaSecreta}} </p>
+    <ion-input type="text" [(ngModel)]="respuesta" placeholder="Ingresa aqui tu respuesta"></ion-input>
     <a (click)="validarRespuestaSecreta()">Recupera tu contraseña</a>
   </ion-card>
+
+  <ion-button (click)="inicioSesion()" expand="block" expand="full" shape="round" color="warning">
+    <ion-icon slot="start"></ion-icon>
+    Iniciar Sesion
+  </ion-button>
 </ion-content>
+
+

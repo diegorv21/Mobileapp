@@ -134,8 +134,24 @@ public ngOnInit(): void {
     if (qrCode) {
       this.escaneando = false;
       this.datosQR = qrCode.data;
+      this.mostrarDatosQROrdenados(this.datosQR);
     }
     return this.datosQR !== '';
+  }
+
+  public mostrarDatosQROrdenados(datosQR: string): void {
+    const objetoDatosQR = JSON.parse(datosQR);
+    // this.bloqueInicio= objetoDatosQR.bloqueInicio;
+    // this.bloqueTermino: number = 0;
+    // this.dia: string = '';
+    // this.horaFin: string = '';
+    // this.horaInicio: string = '';
+    // this.idAsignatura: string = '';
+    // this.nombreAsignatura: string = '';
+    // this.nombreProfesor: string = '';
+    // this.seccion: string = '';
+    // this.sede: string = '';
+
   }
 
   async verificarVideo() {
@@ -176,5 +192,17 @@ public ngOnInit(): void {
     };
     img.src = URL.createObjectURL(file);
   }
+
+  public bloqueInicio: number = 0;
+  public bloqueTermino: number = 0;
+  public dia: string = '';
+  public horaFin: string = '';
+  public horaInicio: string = '';
+  public idAsignatura: string = '';
+  public nombreAsignatura: string = '';
+  public nombreProfesor: string = '';
+  public seccion: string = '';
+  public sede: string = '';
+
 }
 
