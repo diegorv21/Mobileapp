@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pregunta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-subtitle>Ingresa tu correo</ion-card-subtitle>
+    <ion-input type="text" [(ngModel)]="respuesta" placeholder="Ingresa tu respuesta"></ion-input>
+    <a (click)="validarRespuestaSecreta()">Recupera tu contraseña</a>
+  </ion-card>
+</ion-content>

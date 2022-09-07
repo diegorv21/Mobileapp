@@ -72,6 +72,9 @@ export class IngresoPage implements OnInit {
     this.router.navigate(['/home'], navigationExtras); // Navegamos hacia el Home y enviamos la información extra
   }
 
+  public ingresarCorreoValido(): void {
+    this.router.navigate(['/correo']);
+  }
   /*
     Usaremos validateModel para verificar que se cumplan las validaciones de los campos del formulario
   */

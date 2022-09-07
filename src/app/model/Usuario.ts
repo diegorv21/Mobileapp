@@ -37,9 +37,14 @@ export class Usuario {
         usu => usu.correo === correo && usu.password === password);
     }
 
+    public buscarUsuarioPorCorreo(correo: string): Usuario{
+      return this.listaUsuariosValidos().find(
+        usu => usu.correo === correo);
+    }
+
   public validarcorreo(): string {
     // eslint-disable-next-line max-len
-    if (this.correo !== "atorres@duocuc.cl" && this.correo !== "avalenzuela@duocuc.cl" && this.correo !== 'cfuentes@duocuc.cl') {
+    if (this.correo !== 'atorres@duocuc.cl' && this.correo !== 'avalenzuela@duocuc.cl' && this.correo !== 'cfuentes@duocuc.cl') {
       return 'Usuario incorrecto';
     }
     return '';
